@@ -48,10 +48,11 @@ public class playercontroller : MonoBehaviour
         { 
             other.gameObject.SetActive(false);
             count += 1;
+            //every pickup increases speed
             speed += 1;
             SetCountText();
         }
-                
+        //if the player hits the barrier act like they lost but with diffrent text        
         if (other.gameObject.CompareTag("deathzone"))
         {
             Destroy(gameObject);

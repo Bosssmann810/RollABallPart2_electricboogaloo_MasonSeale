@@ -12,8 +12,10 @@ public class victorydance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if the player is not alive
         if (Player == null)
         {
+            //dance
             transform.Rotate(new Vector3(100, 200, 300) * Time.deltaTime);
         }
     }

@@ -48,11 +48,18 @@ public class playercontroller : MonoBehaviour
         { 
             other.gameObject.SetActive(false);
             count += 1;
+            speed += 1;
             SetCountText();
         }
-            
-
+                
+        if (other.gameObject.CompareTag("deathzone"))
+        {
+            Destroy(gameObject);
+            winTextobject.SetActive(true);
+            winTextobject.GetComponent<TextMeshProUGUI>().text = "Out Of Bounds";
+        }
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))

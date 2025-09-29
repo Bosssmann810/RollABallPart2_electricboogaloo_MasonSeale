@@ -11,6 +11,10 @@ public class playercontroller : MonoBehaviour
     public float speed = 0;
     public TextMeshProUGUI countText;
     public GameObject winTextobject;
+    public GameObject exit;
+    public GameObject backup_A;
+    public GameObject backup_B;
+    public GameObject backup_C;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,7 +22,12 @@ public class playercontroller : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         count = 0;
         winTextobject.SetActive(false);
+        exit.SetActive(false);
+        backup_A.SetActive(false);
+        backup_B.SetActive(false);
+        backup_C.SetActive(false);
         SetCountText();
+
     }
 
   
@@ -31,10 +40,15 @@ public class playercontroller : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
+        //when they get all the epickups start the escape
         if (count >= 12)
         {
             winTextobject.SetActive(true);
-            Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+           
+            exit.SetActive(true);
+            backup_A.SetActive(true);
+            backup_B.SetActive(true);
+            backup_C.SetActive(true);
         }
     }
     private void FixedUpdate()
@@ -59,6 +73,17 @@ public class playercontroller : MonoBehaviour
             winTextobject.SetActive(true);
             winTextobject.GetComponent<TextMeshProUGUI>().text = "Out Of Bounds";
         }
+        //if the player gets to the exit end the game
+        if (other.gameObject.CompareTag("exit"))
+        {
+            Destroy(gameObject);
+            winTextobject.GetComponent<TextMeshProUGUI>().text = "YOU ESCAPED!";
+            Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+            //remove the backups
+            backup_A.SetActive(false);
+            backup_B.SetActive(false);
+            backup_C.SetActive(false);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -68,6 +93,13 @@ public class playercontroller : MonoBehaviour
             Destroy(gameObject);
             winTextobject.SetActive(true);
             winTextobject.GetComponent<TextMeshProUGUI>().text = "You Lose"; 
+        }
+        //same thing diffrent tag
+        if (collision.gameObject.CompareTag("WAVE2"))
+        {
+            Destroy(gameObject);
+            winTextobject.SetActive(true);
+            winTextobject.GetComponent<TextMeshProUGUI>().text = "You Lose";
         }
     }
 }

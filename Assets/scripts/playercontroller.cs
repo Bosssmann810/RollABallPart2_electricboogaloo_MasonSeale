@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class playercontroller : MonoBehaviour
 {
     private Rigidbody rb;
@@ -15,6 +15,9 @@ public class playercontroller : MonoBehaviour
     public GameObject backup_A;
     public GameObject backup_B;
     public GameObject backup_C;
+    public TextMeshProUGUI levelText;
+    public GameObject continuebutton;
+    public bigguy bigguy;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,10 +30,12 @@ public class playercontroller : MonoBehaviour
         backup_B.SetActive(false);
         backup_C.SetActive(false);
         SetCountText();
-
+        int currentscene = SceneManager.GetActiveScene().buildIndex;
+        levelText.text = "Level: " + currentscene.ToString();
+        continuebutton.SetActive(false);
     }
 
-  
+
     void OnMove(InputValue movmentvalue)
     {
         Vector2 movementvector = movmentvalue.Get<Vector2>();
@@ -44,6 +49,7 @@ public class playercontroller : MonoBehaviour
         if (count >= 12)
         {
             winTextobject.SetActive(true);
+            
            
             exit.SetActive(true);
             backup_A.SetActive(true);
@@ -51,6 +57,7 @@ public class playercontroller : MonoBehaviour
             backup_C.SetActive(true);
         }
     }
+
     private void FixedUpdate()
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY); 
@@ -77,12 +84,22 @@ public class playercontroller : MonoBehaviour
         if (other.gameObject.CompareTag("exit"))
         {
             Destroy(gameObject);
-            winTextobject.GetComponent<TextMeshProUGUI>().text = "YOU ESCAPED!";
+            winTextobject.GetComponent<TextMeshProUGUI>().text = "YOU ESCAPED! ";
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
             //remove the backups
             backup_A.SetActive(false);
             backup_B.SetActive(false);
             backup_C.SetActive(false);
+            continuebutton.SetActive(true);
+        }
+        if (other.gameObject.CompareTag("chips"))
+        {
+            
+            other.gameObject.SetActive(false);
+            count += 1;
+            speed += 1;
+            SetCountText();
+            bigguy.sadness();
         }
     }
 

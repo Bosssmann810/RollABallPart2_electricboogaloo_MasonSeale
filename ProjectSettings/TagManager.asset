@@ -10,6 +10,7 @@ TagManager:
   - exit
   - wave2 enemy
   - WAVE2
+  - chips
   layers:
   - Default
   - TransparentFX

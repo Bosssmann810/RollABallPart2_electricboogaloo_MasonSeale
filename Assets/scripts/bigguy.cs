@@ -5,7 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 public class bigguy : MonoBehaviour
 {
     public Transform chips;
-   
+    public playercontroller playercontroller;
     public Transform player;
     private NavMeshAgent agent;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -14,10 +14,9 @@ public class bigguy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(chips.position);
     }
-    
+
 
     // Update is called once per frame
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("chips"))
@@ -25,6 +24,7 @@ public class bigguy : MonoBehaviour
             mad();
             if(player != null)
             {
+                agent = GetComponent<NavMeshAgent>();
                 agent.SetDestination(player.position);
             }
 
@@ -38,6 +38,7 @@ public class bigguy : MonoBehaviour
         sad();
         if (player != null)
         {
+            agent = GetComponent<NavMeshAgent>();
             agent.SetDestination(player.position);
         }
     }

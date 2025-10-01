@@ -100,6 +100,7 @@ public class playercontroller : MonoBehaviour
             speed += 1;
             SetCountText();
             bigguy.sadness();
+            //WHY DONT YOU WORK WHY DONT YOU WORK WHY DONT YOU WORK WHY DONT YOU WORK I DONT GET IT I JUST DONT GET IT WHY DONT YOU WORK
         }
     }
 

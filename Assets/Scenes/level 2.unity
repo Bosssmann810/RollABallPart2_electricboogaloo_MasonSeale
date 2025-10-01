@@ -2091,7 +2091,7 @@ MonoBehaviour:
   backup_C: {fileID: 1386078927}
   levelText: {fileID: 2023229415}
   continuebutton: {fileID: 1329274081}
-  bigguy: {fileID: 0}
+  bigguy: {fileID: 1474837280}
 --- !u!114 &1048227390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3059,7 +3059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2530134276390360338, guid: bcf2935ef19f41549a512e2d6e2b8318, type: 3}
       propertyPath: m_ProvidesContacts
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6487674320768698662, guid: bcf2935ef19f41549a512e2d6e2b8318, type: 3}
       propertyPath: m_LocalScale.x
@@ -3191,6 +3191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chips: {fileID: 918906631}
+  playercontroller: {fileID: 1048227389}
   player: {fileID: 1048227395}
 --- !u!1 &1578065230
 GameObject:

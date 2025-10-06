@@ -8,6 +8,7 @@ public class bigguy : MonoBehaviour
     public playercontroller playercontroller;
     public Transform player;
     private NavMeshAgent agent;
+    bool angry = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,31 +21,34 @@ public class bigguy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("chips"))
-        { 
+        {
             mad();
-            if(player != null)
+            if (player != null)
             {
                 agent = GetComponent<NavMeshAgent>();
                 agent.SetDestination(player.position);
             }
 
             other.gameObject.SetActive(false);
-           
+
         }
-       
+
     }
-    public void sadness()
-    {   
-        sad();
-        if (player != null)
+    private void Update()
+    {
+        if(angry == true)
         {
             agent = GetComponent<NavMeshAgent>();
             agent.SetDestination(player.position);
         }
     }
-    private void mad()
+    public void mad()
     {
+        angry = true;
+        agent = GetComponent<NavMeshAgent>();
+        agent.SetDestination(player.position);
         agent.speed = 7.0f;
+        
     }
     private void sad()
     {

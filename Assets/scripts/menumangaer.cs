@@ -13,6 +13,10 @@ public class menumangaer : MonoBehaviour
     {
         SceneManager.LoadScene(currentscene + 1);
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
     // Update is called once per frame
     void Update()

@@ -9,6 +9,7 @@ public class playercontroller : MonoBehaviour
     private float movementY; 
     private int count;
     public float speed = 0;
+    public int levelcount;
     public TextMeshProUGUI countText;
     public GameObject winTextobject;
     public GameObject exit;
@@ -46,7 +47,7 @@ public class playercontroller : MonoBehaviour
     {
         countText.text = "Count: " + count.ToString();
         //when they get all the epickups start the escape
-        if (count >= 12)
+        if (count >= levelcount)
         {
             winTextobject.SetActive(true);
             
@@ -99,8 +100,7 @@ public class playercontroller : MonoBehaviour
             count += 1;
             speed += 1;
             SetCountText();
-            bigguy.sadness();
-            //WHY DONT YOU WORK WHY DONT YOU WORK WHY DONT YOU WORK WHY DONT YOU WORK I DONT GET IT I JUST DONT GET IT WHY DONT YOU WORK
+            bigguy.mad();
         }
     }
 

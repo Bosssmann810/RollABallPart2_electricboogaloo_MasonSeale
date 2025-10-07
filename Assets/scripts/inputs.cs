@@ -41,4 +41,9 @@ public class inputs : MonoBehaviour
 
         SceneManager.LoadScene(currentscene + 1);
     }
+    
+    public void menu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

@@ -19,6 +19,7 @@ public class playercontroller : MonoBehaviour
     public GameObject backup_C;
     public TextMeshProUGUI levelText;
     public GameObject continuebutton;
+    public GameObject menubutton;
     public bigguy bigguy;
     public GameObject tipText;
     
@@ -33,6 +34,7 @@ public class playercontroller : MonoBehaviour
         backup_B.SetActive(false);
         backup_C.SetActive(false);
         tipText.SetActive(false);
+        menubutton.SetActive(false);
         SetCountText();
         int currentscene = SceneManager.GetActiveScene().buildIndex;
         levelText.text = "Level: " + currentscene.ToString();
@@ -117,6 +119,7 @@ public class playercontroller : MonoBehaviour
             backup_B.SetActive(false);
             backup_C.SetActive(false);
             continuebutton.SetActive(true);
+            menubutton.SetActive(true);
         }
         if (other.gameObject.CompareTag("chips"))
         {

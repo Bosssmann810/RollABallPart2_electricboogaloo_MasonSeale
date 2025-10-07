@@ -1,6 +1,8 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 public class playercontroller : MonoBehaviour
 {
@@ -22,6 +24,7 @@ public class playercontroller : MonoBehaviour
     public GameObject menubutton;
     public bigguy bigguy;
     public GameObject tipText;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -68,26 +71,21 @@ public class playercontroller : MonoBehaviour
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY); 
         rb.AddForce(movement * speed);
-       
+        
 
     
     }
 
     private void Update()
-    {
+    {        
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (canDash == true) //only if they can dash
             {
-                float dashspeed = speed * 50;
+                float dashspeed = speed * 30;
                 rb.AddForce(movement * dashspeed, ForceMode.Force);
             }
-            else
-            {
-                return;
-            }
-
         }
     }
 

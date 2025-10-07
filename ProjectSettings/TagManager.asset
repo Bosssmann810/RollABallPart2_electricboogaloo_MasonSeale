@@ -11,6 +11,7 @@ TagManager:
   - wave2 enemy
   - WAVE2
   - chips
+  - upgrade1
   layers:
   - Default
   - TransparentFX

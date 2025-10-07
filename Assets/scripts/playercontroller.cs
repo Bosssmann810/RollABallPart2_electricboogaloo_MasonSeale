@@ -10,6 +10,7 @@ public class playercontroller : MonoBehaviour
     private int count;
     public float speed = 0;
     public int levelcount;
+    public bool canDash;
     public TextMeshProUGUI countText;
     public GameObject winTextobject;
     public GameObject exit;
@@ -19,6 +20,7 @@ public class playercontroller : MonoBehaviour
     public TextMeshProUGUI levelText;
     public GameObject continuebutton;
     public bigguy bigguy;
+    public GameObject tipText;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +32,7 @@ public class playercontroller : MonoBehaviour
         backup_A.SetActive(false);
         backup_B.SetActive(false);
         backup_C.SetActive(false);
+        tipText.SetActive(false);
         SetCountText();
         int currentscene = SceneManager.GetActiveScene().buildIndex;
         levelText.text = "Level: " + currentscene.ToString();
@@ -63,7 +66,29 @@ public class playercontroller : MonoBehaviour
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY); 
         rb.AddForce(movement * speed);
+       
+
+    
     }
+
+    private void Update()
+    {
+        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (canDash == true) //only if they can dash
+            {
+                float dashspeed = speed * 50;
+                rb.AddForce(movement * dashspeed, ForceMode.Force);
+            }
+            else
+            {
+                return;
+            }
+
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PickUp"))
@@ -102,6 +127,15 @@ public class playercontroller : MonoBehaviour
             SetCountText();
             bigguy.mad();
         }
+        if (other.gameObject.CompareTag("upgrade1"))
+        {
+            other.gameObject.SetActive(false);
+            count += 1;
+            speed += 1;
+            SetCountText();
+            canDash = true;
+            tipText.SetActive(true);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -120,4 +154,5 @@ public class playercontroller : MonoBehaviour
             winTextobject.GetComponent<TextMeshProUGUI>().text = "You Lose";
         }
     }
+
 }

@@ -110,15 +110,22 @@ public class playercontroller : MonoBehaviour
         //if the player gets to the exit end the game
         if (other.gameObject.CompareTag("exit"))
         {
-            Destroy(gameObject);
+            
             winTextobject.GetComponent<TextMeshProUGUI>().text = "YOU ESCAPED! ";
-            Destroy(GameObject.FindGameObjectWithTag("Enemy"));
-            //remove the backups
-            backup_A.SetActive(false);
-            backup_B.SetActive(false);
-            backup_C.SetActive(false);
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject[] backup = GameObject.FindGameObjectsWithTag("WAVE2");
+            foreach (GameObject enemy in enemies)
+            {
+                Destroy(enemy);
+            }
+            foreach(GameObject enemy in backup)
+            {
+                Destroy(enemy);
+            }
+
             continuebutton.SetActive(true);
             menubutton.SetActive(true);
+            Destroy(gameObject);
         }
         if (other.gameObject.CompareTag("chips"))
         {

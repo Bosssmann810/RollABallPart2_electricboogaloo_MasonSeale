@@ -2648,6 +2648,7 @@ MonoBehaviour:
   menubutton: {fileID: 732890699}
   bigguy: {fileID: 0}
   tipText: {fileID: 1564087982}
+  SpotlightEnemy: {fileID: 0}
 --- !u!114 &1048227390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2979,15 +2980,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6487674320768698662, guid: bcf2935ef19f41549a512e2d6e2b8318, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.06
+      value: 9.68
       objectReference: {fileID: 0}
     - target: {fileID: 6487674320768698662, guid: bcf2935ef19f41549a512e2d6e2b8318, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.72
+      value: 1.33
       objectReference: {fileID: 0}
     - target: {fileID: 6487674320768698662, guid: bcf2935ef19f41549a512e2d6e2b8318, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.87
+      value: 5.62
       objectReference: {fileID: 0}
     - target: {fileID: 6487674320768698662, guid: bcf2935ef19f41549a512e2d6e2b8318, type: 3}
       propertyPath: m_LocalRotation.w

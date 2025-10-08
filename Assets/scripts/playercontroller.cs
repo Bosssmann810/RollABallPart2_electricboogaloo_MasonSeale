@@ -24,6 +24,7 @@ public class playercontroller : MonoBehaviour
     public GameObject menubutton;
     public bigguy bigguy;
     public GameObject tipText;
+    public SpotlightEnemy SpotlightEnemy;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -40,7 +41,7 @@ public class playercontroller : MonoBehaviour
         menubutton.SetActive(false);
         SetCountText();
         int currentscene = SceneManager.GetActiveScene().buildIndex;
-        levelText.text = "Level: " + currentscene.ToString();
+        levelText.text = "Level: " + (currentscene - 1).ToString();
         continuebutton.SetActive(false);
     }
 
@@ -127,6 +128,10 @@ public class playercontroller : MonoBehaviour
             speed += 1;
             SetCountText();
             bigguy.mad();
+        }
+        if (other.gameObject.CompareTag("spotlight"))
+        {
+            SpotlightEnemy.allerted();
         }
         if (other.gameObject.CompareTag("upgrade1"))
         {

@@ -25,14 +25,23 @@ public class inputs : MonoBehaviour
             //quit the game
             Application.Quit();
         }
+        
         if (canprogress == true)
         {
+            //if they hit T
             if (Input.GetKeyDown(KeyCode.T))
             {
                 int currentscene = SceneManager.GetActiveScene().buildIndex;
-
+                //skip to next level
                 SceneManager.LoadScene(currentscene + 1);
             }
+        }
+        //if they hit Y
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            int currentscene = SceneManager.GetActiveScene().buildIndex;
+            //load previous level
+            SceneManager.LoadScene(currentscene - 1);
         }
     }
     public void Continue()

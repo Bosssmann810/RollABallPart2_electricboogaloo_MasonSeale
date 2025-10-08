@@ -12,6 +12,7 @@ TagManager:
   - WAVE2
   - chips
   - upgrade1
+  - spotlight
   layers:
   - Default
   - TransparentFX

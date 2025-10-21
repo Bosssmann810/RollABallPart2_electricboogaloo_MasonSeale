@@ -2044,6 +2044,10 @@ MonoBehaviour:
   bigguy: {fileID: 0}
   tipText: {fileID: 1973752149}
   SpotlightEnemy: {fileID: 0}
+  backup:
+  - {fileID: 1386078927}
+  - {fileID: 421345751}
+  - {fileID: 1252745999}
 --- !u!114 &1048227390
 MonoBehaviour:
   m_ObjectHideFlags: 0

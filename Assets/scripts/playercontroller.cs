@@ -16,16 +16,13 @@ public class playercontroller : MonoBehaviour
     public TextMeshProUGUI countText;
     public GameObject winTextobject;
     public GameObject exit;
-    public GameObject backup_A;
-    public GameObject backup_B;
-    public GameObject backup_C;
     public TextMeshProUGUI levelText;
     public GameObject continuebutton;
     public GameObject menubutton;
     public bigguy bigguy;
     public GameObject tipText;
     public SpotlightEnemy SpotlightEnemy;
-    
+    public GameObject[] backup;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,9 +31,11 @@ public class playercontroller : MonoBehaviour
         count = 0;
         winTextobject.SetActive(false);
         exit.SetActive(false);
-        backup_A.SetActive(false);
-        backup_B.SetActive(false);
-        backup_C.SetActive(false);
+        
+        foreach (GameObject enemy in backup)
+        {
+            enemy.SetActive(false);
+        }
         tipText.SetActive(false);
         menubutton.SetActive(false);
         SetCountText();
@@ -60,11 +59,11 @@ public class playercontroller : MonoBehaviour
         {
             winTextobject.SetActive(true);
             
-           
+           foreach (GameObject enemy in backup)
+            {
+                enemy.SetActive(true);
+            }
             exit.SetActive(true);
-            backup_A.SetActive(true);
-            backup_B.SetActive(true);
-            backup_C.SetActive(true);
         }
     }
 
@@ -113,7 +112,6 @@ public class playercontroller : MonoBehaviour
             
             winTextobject.GetComponent<TextMeshProUGUI>().text = "YOU ESCAPED! ";
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            GameObject[] backup = GameObject.FindGameObjectsWithTag("WAVE2");
             foreach (GameObject enemy in enemies)
             {
                 Destroy(enemy);

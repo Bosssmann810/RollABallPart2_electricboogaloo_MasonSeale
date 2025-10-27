@@ -2257,9 +2257,6 @@ MonoBehaviour:
   countText: {fileID: 562313741}
   winTextobject: {fileID: 1939205089}
   exit: {fileID: 984611588}
-  backup_A: {fileID: 421345751}
-  backup_B: {fileID: 1252745999}
-  backup_C: {fileID: 1386078927}
   levelText: {fileID: 2023229415}
   continuebutton: {fileID: 1329274081}
   menubutton: {fileID: 2147275798}
@@ -2270,6 +2267,7 @@ MonoBehaviour:
   - {fileID: 1252745999}
   - {fileID: 421345751}
   - {fileID: 1386078927}
+  versiontext: {fileID: 1715966116}
 --- !u!114 &1048227390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4527,7 +4525,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

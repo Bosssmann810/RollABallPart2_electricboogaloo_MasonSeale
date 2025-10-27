@@ -23,10 +23,12 @@ public class playercontroller : MonoBehaviour
     public GameObject tipText;
     public SpotlightEnemy SpotlightEnemy;
     public GameObject[] backup;
+    public TextMeshProUGUI versiontext;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        versiontext.text = "V1.12";
         rb = GetComponent<Rigidbody>();
         count = 0;
         winTextobject.SetActive(false);

@@ -36,6 +36,10 @@ public class levelselect : MonoBehaviour
         SceneManager.LoadScene(8);
     }
 
+    public void lv8()
+    {
+        SceneManager.LoadScene(9);
+    }
     public void back()
     {
         SceneManager.LoadScene(0);

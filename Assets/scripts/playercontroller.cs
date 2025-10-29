@@ -19,6 +19,7 @@ public class playercontroller : MonoBehaviour
     public TextMeshProUGUI levelText;
     public GameObject continuebutton;
     public GameObject menubutton;
+    public GameObject retrybutton;
     public bigguy bigguy;
     public GameObject tipText;
     public SpotlightEnemy SpotlightEnemy;
@@ -28,7 +29,7 @@ public class playercontroller : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        versiontext.text = "V1.12";
+        versiontext.text = "V1.15";
         rb = GetComponent<Rigidbody>();
         count = 0;
         winTextobject.SetActive(false);
@@ -44,6 +45,7 @@ public class playercontroller : MonoBehaviour
         int currentscene = SceneManager.GetActiveScene().buildIndex;
         levelText.text = "Level: " + (currentscene - 1).ToString();
         continuebutton.SetActive(false);
+        retrybutton.SetActive(false);
     }
 
 
@@ -105,6 +107,7 @@ public class playercontroller : MonoBehaviour
         if (other.gameObject.CompareTag("deathzone"))
         {
             Destroy(gameObject);
+            retrybutton.SetActive(true);
             winTextobject.SetActive(true);
             winTextobject.GetComponent<TextMeshProUGUI>().text = "Out Of Bounds";
         }
@@ -157,12 +160,16 @@ public class playercontroller : MonoBehaviour
         {
             Destroy(gameObject);
             winTextobject.SetActive(true);
+            menubutton.SetActive(true);
+            retrybutton.SetActive(true);
             winTextobject.GetComponent<TextMeshProUGUI>().text = "You Lose"; 
         }
         //same thing diffrent tag
         if (collision.gameObject.CompareTag("WAVE2"))
         {
             Destroy(gameObject);
+            menubutton.SetActive(true);
+            retrybutton.SetActive(true);
             winTextobject.SetActive(true);
             winTextobject.GetComponent<TextMeshProUGUI>().text = "You Lose";
         }

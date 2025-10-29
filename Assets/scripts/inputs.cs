@@ -55,4 +55,11 @@ public class inputs : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void retry()
+    {
+        int currentscene = SceneManager.GetActiveScene().buildIndex;
+
+        SceneManager.LoadScene(currentscene);
+    }
 }

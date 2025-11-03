@@ -8,12 +8,17 @@ public class menumangaer : MonoBehaviour
     public GameObject levelselectbutton;
     public GameObject backbutton;
     public GameObject controlsbutton;
+    public GameObject gallery;
     private int currentscene = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         controlstext.SetActive(false);
         backbutton.SetActive(false);
+    }
+    public void gotogallery()
+    {
+        SceneManager.LoadScene(11);
     }
     public void PlayGame()
     {
@@ -30,6 +35,7 @@ public class menumangaer : MonoBehaviour
         quitbuttton.SetActive(false);
         levelselectbutton.SetActive(false);
         controlsbutton.SetActive(false);
+        gallery.SetActive(false);
         backbutton.SetActive(true);
         controlstext.SetActive(true);
     }
@@ -40,13 +46,14 @@ public class menumangaer : MonoBehaviour
     }
     public void back()
     {
+
         play.SetActive(true);
         quitbuttton.SetActive(true);
         levelselectbutton.SetActive(true);
         controlsbutton.SetActive(true);
         backbutton.SetActive(false);
         controlstext.SetActive(false);
-
+        gallery.SetActive(true);
     }
     // Update is called once per frame
     void Update()

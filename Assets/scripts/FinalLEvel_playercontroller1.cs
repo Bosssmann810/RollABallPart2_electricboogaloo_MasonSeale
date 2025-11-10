@@ -30,14 +30,20 @@ public class FinalLevelplayercontroller : MonoBehaviour
     public TextMeshProUGUI versiontext;
     public GameObject[] room1;
     public GameObject barrier1;
+    public GameObject barrier2;
+    public GameObject[] room2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        versiontext.text = "v1.15";
+        versiontext.text = "v1.2";
         rb = GetComponent<Rigidbody>();
         count = 0;
         winTextobject.SetActive(false);
         exit.SetActive(false);
+        foreach(GameObject thing in room2)
+        {
+            thing.SetActive(false); 
+        }
         foreach(GameObject thing in room1)
         {
             thing.SetActive(false);
@@ -87,6 +93,10 @@ public class FinalLevelplayercontroller : MonoBehaviour
         if (count >= 18)
         {
             barrier1.SetActive(false);
+        }
+        if (count >= 30)
+        {
+            barrier2.SetActive(false);
         }
     }
 
@@ -175,6 +185,13 @@ public class FinalLevelplayercontroller : MonoBehaviour
         if (other.gameObject.CompareTag("room1"))
         {
             foreach(GameObject thing in room1)
+            {
+                thing.SetActive(true);
+            }
+        }
+        if (other.GameObject().CompareTag("room2"))
+        {
+            foreach(GameObject thing in room2)
             {
                 thing.SetActive(true);
             }

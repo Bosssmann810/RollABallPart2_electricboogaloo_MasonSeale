@@ -35,6 +35,7 @@ public class FinalLevelplayercontroller : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        tipText.SetActive(false);
         versiontext.text = "v1.2";
         rb = GetComponent<Rigidbody>();
         count = 0;
@@ -56,7 +57,6 @@ public class FinalLevelplayercontroller : MonoBehaviour
         {
             enemy.SetActive(false);
         }
-        tipText.SetActive(false);
         menubutton.SetActive(false);
         SetCountText();
         int currentscene = SceneManager.GetActiveScene().buildIndex;
@@ -78,6 +78,7 @@ public class FinalLevelplayercontroller : MonoBehaviour
         //when they get all the epickups start the escape
         if (count >= levelcount)
         {
+            tipText.SetActive(true);
             winTextobject.SetActive(true);
             dissapearingwall.SetActive(false);
            foreach (GameObject path in escaperoute)
@@ -92,9 +93,10 @@ public class FinalLevelplayercontroller : MonoBehaviour
         }
         if (count >= 18)
         {
+
             barrier1.SetActive(false);
         }
-        if (count >= 30)
+        if (count >= 31)
         {
             barrier2.SetActive(false);
         }

@@ -29,7 +29,7 @@ public class playercontroller : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        versiontext.text = "v1.15";
+        versiontext.text = "v1.2";
         rb = GetComponent<Rigidbody>();
         count = 0;
         winTextobject.SetActive(false);

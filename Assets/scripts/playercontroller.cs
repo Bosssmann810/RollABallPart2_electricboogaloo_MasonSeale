@@ -25,10 +25,12 @@ public class playercontroller : MonoBehaviour
     public SpotlightEnemy SpotlightEnemy;
     public GameObject[] backup;
     public TextMeshProUGUI versiontext;
+    public GameObject light;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        light.SetActive(false);
         versiontext.text = "v1.2";
         rb = GetComponent<Rigidbody>();
         count = 0;
@@ -152,6 +154,14 @@ public class playercontroller : MonoBehaviour
             SetCountText();
             canDash = true;
             tipText.SetActive(true);
+        }
+        if (other.gameObject.CompareTag("party"))
+        {
+            other.gameObject.SetActive(false);
+            light.SetActive(true);
+            count += 1;
+            speed += 1;
+            SetCountText();
         }
     }
 

@@ -2636,6 +2636,7 @@ MonoBehaviour:
   - {fileID: 421345751}
   - {fileID: 1386078927}
   versiontext: {fileID: 918774532}
+  light: {fileID: 174785965}
 --- !u!114 &1048227390
 MonoBehaviour:
   m_ObjectHideFlags: 0

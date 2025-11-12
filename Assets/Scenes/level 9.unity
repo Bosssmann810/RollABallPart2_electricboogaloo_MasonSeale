@@ -1575,7 +1575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3555875889304102199, guid: aeb9d40538014654d8bcebcfac1e9bcd, type: 3}
       propertyPath: m_TagString
-      value: WAVE2
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4232830193089050541, guid: aeb9d40538014654d8bcebcfac1e9bcd, type: 3}
       propertyPath: m_TagString
@@ -4736,7 +4736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3555875889304102199, guid: aeb9d40538014654d8bcebcfac1e9bcd, type: 3}
       propertyPath: m_TagString
-      value: WAVE2
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4232830193089050541, guid: aeb9d40538014654d8bcebcfac1e9bcd, type: 3}
       propertyPath: m_TagString

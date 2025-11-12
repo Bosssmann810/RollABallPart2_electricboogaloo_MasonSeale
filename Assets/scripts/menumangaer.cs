@@ -18,7 +18,7 @@ public class menumangaer : MonoBehaviour
     }
     public void gotogallery()
     {
-        SceneManager.LoadScene(13);
+        SceneManager.LoadScene(14);
     }
     public void PlayGame()
     {

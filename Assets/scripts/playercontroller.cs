@@ -6,6 +6,9 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 public class playercontroller : MonoBehaviour
 {
+    public AudioSource radio;
+    public AudioClip coinsound;
+    public AudioClip deathsound;
     private Rigidbody rb;
     private float movementX;
     private float movementY; 
@@ -30,6 +33,7 @@ public class playercontroller : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         light.SetActive(false);
         versiontext.text = "v1.2";
         rb = GetComponent<Rigidbody>();
@@ -98,7 +102,8 @@ public class playercontroller : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PickUp"))
-        { 
+        {
+            radio.PlayOneShot(coinsound);
             other.gameObject.SetActive(false);
             count += 1;
             //every pickup increases speed
@@ -169,6 +174,7 @@ public class playercontroller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            radio.PlayOneShot(deathsound);
             Destroy(gameObject);
             winTextobject.SetActive(true);
             menubutton.SetActive(true);
@@ -178,6 +184,7 @@ public class playercontroller : MonoBehaviour
         //same thing diffrent tag
         if (collision.gameObject.CompareTag("WAVE2"))
         {
+            radio.PlayOneShot(deathsound);
             Destroy(gameObject);
             menubutton.SetActive(true);
             retrybutton.SetActive(true);

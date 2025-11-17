@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 public class playercontroller : MonoBehaviour
 {
+    public TrailRenderer trail;
     public AudioSource radio;
     public AudioClip coinsound;
     public AudioClip deathsound;
@@ -29,11 +30,15 @@ public class playercontroller : MonoBehaviour
     public GameObject[] backup;
     public TextMeshProUGUI versiontext;
     public GameObject light;
-    
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
+        if(canDash == false)
+        {
+            trail.emitting = false;
+        }
         light.SetActive(false);
         versiontext.text = "v1.2";
         rb = GetComponent<Rigidbody>();
@@ -88,14 +93,20 @@ public class playercontroller : MonoBehaviour
 
     private void Update()
     {        
+        if(canDash == true)
+        {
+            trail.emitting = true;
+        }
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (canDash == true) //only if they can dash
             {
+                trail.emitting = true;
                 float dashspeed = speed * 30;
                 rb.AddForce(movement * dashspeed, ForceMode.Force);
             }
+            
         }
     }
 

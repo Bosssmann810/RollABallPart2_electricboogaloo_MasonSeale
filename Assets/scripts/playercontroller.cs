@@ -113,6 +113,7 @@ public class playercontroller : MonoBehaviour
         //if the player hits the barrier act like they lost but with diffrent text        
         if (other.gameObject.CompareTag("deathzone"))
         {
+            radio.PlayOneShot(deathsound);
             Destroy(gameObject);
             retrybutton.SetActive(true);
             menubutton.SetActive(true);

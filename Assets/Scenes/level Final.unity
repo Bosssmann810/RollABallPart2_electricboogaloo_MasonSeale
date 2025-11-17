@@ -5705,7 +5705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radio: {fileID: 0}
   coinsound: {fileID: 0}
-  deathsound: {fileID: 0}
+  deathsound: {fileID: 8300000, guid: a63edfad736a5ea4ba485617c35ead57, type: 3}
   speed: 10
   levelcount: 12
   canDash: 0
@@ -5883,6 +5883,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcae38d01152a8e4e8c4fcdfe39afa5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radio: {fileID: 1684181408}
+  coinsound: {fileID: 8300000, guid: a76c6b39f87186b4f81e2a61824697ff, type: 3}
+  deathsound: {fileID: 8300000, guid: a63edfad736a5ea4ba485617c35ead57, type: 3}
   speed: 10
   levelcount: 1
   canDash: 1

@@ -7,6 +7,9 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 public class FinalLevelplayercontroller : MonoBehaviour
 {
+    public AudioSource radio;
+    public AudioClip coinsound;
+    public AudioClip deathsound;
     private Rigidbody rb;
     private float movementX;
     private float movementY; 
@@ -127,7 +130,8 @@ public class FinalLevelplayercontroller : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PickUp"))
-        { 
+        {
+            radio.PlayOneShot(coinsound);
             other.gameObject.SetActive(false);
             count += 1;
             //every pickup increases speed
@@ -137,6 +141,8 @@ public class FinalLevelplayercontroller : MonoBehaviour
         //if the player hits the barrier act like they lost but with diffrent text        
         if (other.gameObject.CompareTag("deathzone"))
         {
+
+            radio.PlayOneShot(deathsound);
             Destroy(gameObject);
             retrybutton.SetActive(true);
             menubutton.SetActive(true);
@@ -204,6 +210,7 @@ public class FinalLevelplayercontroller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            radio.PlayOneShot(deathsound);
             Destroy(gameObject);
             winTextobject.SetActive(true);
             menubutton.SetActive(true);
@@ -213,6 +220,7 @@ public class FinalLevelplayercontroller : MonoBehaviour
         //same thing diffrent tag
         if (collision.gameObject.CompareTag("WAVE2"))
         {
+            radio.PlayOneShot(deathsound);
             Destroy(gameObject);
             menubutton.SetActive(true);
             retrybutton.SetActive(true);

@@ -6,7 +6,6 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 public class playercontroller : MonoBehaviour
 {
-    public ParticleSystem particle;
     public TrailRenderer trail;
     public AudioSource radio;
     public AudioClip coinsound;
@@ -126,9 +125,9 @@ public class playercontroller : MonoBehaviour
         //if the player hits the barrier act like they lost but with diffrent text        
         if (other.gameObject.CompareTag("deathzone"))
         {
-            particle.Play();
+
             radio.PlayOneShot(deathsound);
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject);
             retrybutton.SetActive(true);
             menubutton.SetActive(true);
             winTextobject.SetActive(true);
@@ -137,7 +136,6 @@ public class playercontroller : MonoBehaviour
         //if the player gets to the exit end the game
         if (other.gameObject.CompareTag("exit"))
         {
-            particle.Play();
             winTextobject.GetComponent<TextMeshProUGUI>().text = "YOU ESCAPED! ";
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject enemy in enemies)
@@ -189,8 +187,6 @@ public class playercontroller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            particle.transform.parent = null;
-            particle.Play();
             radio.PlayOneShot(deathsound);
             Destroy(gameObject);
             winTextobject.SetActive(true);
@@ -201,7 +197,6 @@ public class playercontroller : MonoBehaviour
         //same thing diffrent tag
         if (collision.gameObject.CompareTag("WAVE2"))
         {
-            particle.Play();
             radio.PlayOneShot(deathsound);
             Destroy(gameObject);
             menubutton.SetActive(true);

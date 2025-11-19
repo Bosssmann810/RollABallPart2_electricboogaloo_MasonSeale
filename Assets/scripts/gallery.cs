@@ -13,6 +13,8 @@ public class gallery : MonoBehaviour
     public GameObject Ghosttext;
     public GameObject spotlight;
     public GameObject spotlighttext;
+    public GameObject thebehemoth;
+    public GameObject behemothtext;
     static int currentpage = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,6 +37,8 @@ public class gallery : MonoBehaviour
             Ghosttext.SetActive(false);
             spotlight.SetActive(false);
             spotlighttext.SetActive(false);
+            thebehemoth.SetActive(false);
+            behemothtext.SetActive(false);
             Debug.Log("enemy");
         }
         if (currentpage == 1)
@@ -49,6 +53,8 @@ public class gallery : MonoBehaviour
             Ghosttext.SetActive(false);
             spotlight.SetActive(false);
             spotlighttext.SetActive(false);
+            thebehemoth.SetActive(false);
+            behemothtext.SetActive(false);
             Debug.Log("bigguy");
         }
         if (currentpage == 2)
@@ -63,6 +69,8 @@ public class gallery : MonoBehaviour
             Ghosttext.SetActive(false);
             spotlight.SetActive(false);
             spotlighttext.SetActive(false);
+            thebehemoth.SetActive(false);
+            behemothtext.SetActive(false);
             Debug.Log("little fella");
         }
         if (currentpage == 3)
@@ -77,6 +85,8 @@ public class gallery : MonoBehaviour
             Ghosttext.SetActive(true);
             spotlight.SetActive(false);
             spotlighttext.SetActive(false);
+            thebehemoth.SetActive(false);
+            behemothtext.SetActive(false);
             Debug.Log("ghost");
         }
         if (currentpage == 4)
@@ -91,13 +101,32 @@ public class gallery : MonoBehaviour
             Ghosttext.SetActive(false);
             spotlight.SetActive(true);
             spotlighttext.SetActive(true);
+            thebehemoth.SetActive(false);
+            behemothtext.SetActive(false);
             Debug.Log("spotlight");
+        }
+        if (currentpage == 5)
+        {
+            Enemy.SetActive(false);
+            Enemytext.SetActive(false);
+            Bigguy.SetActive(false);
+            Bigguytext.SetActive(false);
+            littlefella.SetActive(false);
+            littlefellatext.SetActive(false);
+            Ghost.SetActive(false);
+            Ghosttext.SetActive(false);
+            spotlight.SetActive(false);
+            spotlighttext.SetActive(false);
+            thebehemoth.SetActive(true);
+            behemothtext.SetActive(true);
+            Debug.Log("behemoth");
+
         }
     }
     public void forward()
     {
         currentpage += 1;
-        if (currentpage == 5)
+        if (currentpage == 6)
         {
             currentpage = 0;
         }
@@ -107,7 +136,7 @@ public class gallery : MonoBehaviour
         currentpage -= 1;
         if (currentpage == -1)
         {
-            currentpage = 5;
+            currentpage = 6;
         }
     }
     public void menu()
